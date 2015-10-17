@@ -1,6 +1,6 @@
 # Webpack Canvas Boilerplate
 
-This is a simple setup that I used to play with the HTML5 `canvas` element (using `ES6`/`ES7` goodness). With the help of `webpack`'s hot module loading, this setup simply replaces the `canvas` element in the document body whenever relevant source code is changed on disk.
+I used this simple setup to play with the HTML5 `canvas` element via `ES6`/`ES7` goodness. With the help of `webpack`'s hot module loading, this mini-app simply replaces the `canvas` element in the document body whenever relevant source code is changed on disk.
 
 ## Setup
 To start the development server, run:
