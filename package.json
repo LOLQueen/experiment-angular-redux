@@ -23,6 +23,7 @@
     "source-map-loader": "^0.1.5",
     "style-loader": "^0.12.4",
     "webpack": "^1.12.2",
-    "webpack-dev-server": "^1.12.0"
+    "webpack-dev-server": "^1.12.0",
+    "winston": "^1.1.0"
   }
 }
