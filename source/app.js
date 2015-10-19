@@ -1,9 +1,7 @@
 import angular from 'angular';
+import MainApp from './components/MainApp';
+import {makeSelector, makeDirective} from './utils';
 
 export default angular
   .module('app', [])
-  .directive('mainApp', () => {
-    return {
-      template: 'What\'s up guyy!',
-    };
-  });
+  .directive(makeSelector(MainApp), makeDirective(MainApp));
