@@ -29,7 +29,7 @@ module.exports = {
     }],
     loaders: [{
       test: /\.js$/,
-      loaders: ['babel-loader?stage=0', 'eslint-loader'],
+      loaders: ['ng-annotate', 'babel-loader?stage=0', 'eslint-loader'],
       exclude: /node_modules/,
     }, {
       test: /\.scss$/,
