@@ -1,4 +1,9 @@
-export default function(canvas) {
-  const context = canvas.getContext('2d');
-  context.fillRect(10, 10, 2, 10);
-}
+import angular from 'angular';
+
+export default angular
+  .module('app', [])
+  .directive('mainApp', () => {
+    return {
+      template: 'What\'s up guyy!',
+    };
+  });

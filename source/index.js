@@ -1,26 +1,21 @@
+import angular from 'angular';
 import app from './app';
-
-const SIZE = {
-  height: 200,
-  width: 200,
-};
 
 const inject = ::document.body.appendChild;
 const remove = ::document.body.removeChild;
 
-let $canvas = inject(canvas(SIZE));
-app($canvas);
+let $el = inject(bootstrap(app));
 
 if (module.hot) {
   module.hot.accept('./app', () => {
-    remove($canvas);
-    $canvas = inject(canvas(SIZE));
-    require('./app')($canvas);
+    remove($el);
+    $el = inject(bootstrap(require('./app')));
   });
 }
 
-function canvas(options) {
-  return Object.assign(
-    document.createElement('canvas'), options
-  );
+function bootstrap() {
+  const el = document.createElement('div');
+  el.appendChild(document.createElement('main-app'));
+  angular.bootstrap(el, ['app']);
+  return el;
 }
