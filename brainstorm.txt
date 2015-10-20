@@ -1,0 +1,42 @@
+Components that we need:
+
+  - LandingPage
+    - will show a form
+    - no attributes
+
+      Example:
+        <landing-page></landing-page>
+
+  - SummonerPage
+    - display the summoner page header
+    - display the summoner page game items
+
+      Example:
+        <summoner-page></summoner-page>
+
+    - SummonerHeading
+      - display summoner name, rank, region
+      - and show when last updated (from our website)
+      - display picture of some sort (maybe last champion played)
+
+      Example:
+        <summoner-heading summoner="from summoner page"></summoner-heading>
+
+    - MatchHistory
+      - display the ten most recent games played (for now)
+      - a list of GameCard directives
+
+      Example:
+        <match-history history="games played"></match-history>
+
+      - GameCard
+        - display the game information from the /matches?summoner-name=blah route
+        - will take in one game as an attribute
+
+          Example:
+            <game-card info="game"></game-card>
+
+  Research:
+    - figure out how data will flow through our application
+      - flux or traditional MVC?
+      - where is state managed
