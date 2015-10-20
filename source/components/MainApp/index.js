@@ -1,10 +1,12 @@
+import template from './template.html';
+
 export default class MainApp {
   static selector = 'main-app';
-  static template = require('./template.html');
-  constructor($log) {
-    this.$log = $log.log;
+  static template = template;
+  constructor($log, $rootScope) {
+    Object.assign(this, {$log, $rootScope});
   }
   log() {
-    this.$log('dependency injection works!');
+    this.$log.log('dependency injection works!');
   }
 }
