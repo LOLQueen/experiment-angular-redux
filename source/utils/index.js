@@ -41,3 +41,9 @@ export function makeSelector(component) {
     (g) => g[1].toUpperCase()
   );
 }
+
+export function register(app, {components}) {
+  return components.reduce((module, component) => module.directive(
+    makeSelector(component), makeDirective(component)
+  ), app);
+}

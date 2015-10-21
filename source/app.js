@@ -1,9 +1,10 @@
 import angular from 'angular';
 import MainApp from './components/MainApp';
 import GameCard from './components/GameCard';
-import {makeSelector, makeDirective} from './utils';
+import {register} from './utils';
 
-export default angular
-  .module('app', [])
-  .directive(makeSelector(MainApp), makeDirective(MainApp))
-  .directive(makeSelector(GameCard), makeDirective(GameCard));
+const app = angular.module('app', []);
+
+export default register(app, {
+  components: [ MainApp, GameCard ],
+});
