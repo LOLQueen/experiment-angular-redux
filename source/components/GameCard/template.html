@@ -1,1 +1,39 @@
-This is a game!
+This is a game! <br/>
+
+<div class="container">
+	<div class="md-col-12">
+	  <div class="overflow-hidden bg-white border rounded">
+	    <div class="p2 bg-silver">
+	      <span title="{{ctrl.info.didWin ? 'Victory' : 'Defeat'}}" ng-class="{'bold inline-block px1 white bg-red rounded': !ctrl.info.didWin, 'bold inline-block px1 white bg-blue rounded': ctrl.info.didWin}" style="float: right">
+	      	{{ctrl.info.didWin ? 'Victory' : 'Defeat'}}
+	      </span>	    
+	      <h3 class="h3 m0">{{ctrl.info.queueType}} - {{ctrl.info.occuredAt}}</h3>
+	    </div>
+	    <div class="p2">
+			<div class="md-col-2 lg-col-2">
+			    <img title="{{ctrl.champion.name}}" src="{{ctrl.champion.imageUrl}}" class="mb2" />
+			    <h2 class="h2 mt0" title="{{ctrl.champion.name}}">{{ctrl.champion.name}}</h2>
+			</div>
+			<div class="md-col-2 lg-col-2 ">
+			    <img title="{{spell.name}} - {{spell.description}}" ng-repeat="spell in ctrl.spells" src="{{spell.imageUrl}}" class="mb2"/>
+			</div>
+			<div class="md-col-2 lg-col-2 ">
+			    <span title="{{ctrl.stats.championsKilled}}">{{ctrl.stats.championsKilled}} /</span>
+			    <span title="{{ctrl.stats.numDeaths}}">{{ctrl.stats.numDeaths}} /</span>
+			    <span title="{{ctrl.stats.assists}}">{{ctrl.stats.assists}}</span> <br/>
+			    <span>KDA of <b>{{(ctrl.stats.championsKilled + ctrl.stats.assists)/(ctrl.stats.numDeaths)}}</b></span>
+			</div>
+			<div class="md-col-2 lg-col-2 ">
+			    <span title="Level {{ctrl.stats.level}}">Level {{ctrl.stats.level}}</span> <br/>
+			    <span title="Creeps {{ctrl.stats.minionsKilled}} + Neutral Monsters {{ctrl.stats.neutralMinionsKilled}}">CS {{ctrl.stats.minionsKilled + ctrl.stats.neutralMinionsKilled}}</span>
+			</div>
+			<div class="md-col-3 lg-col-3 ">
+			    <img title="{{item.name}} - {{item.description}}" ng-repeat="item in ctrl.items" src="{{item.imageUrl}}" class="mb2"/>
+			</div>
+			<div class="md-col-1 lg-col-1 ">
+			    <img title="{{ctrl.trinket.name}} - {{ctrl.trinket.description}}" src="{{ctrl.trinket.imageUrl}}" class="mb2"/>
+			</div>					
+	    </div>
+	  </div>
+	</div>	
+</div>
