@@ -1,5 +1,6 @@
 import angular from 'angular';
 import app from './app';
+import 'basscss/css/basscss.css';
 
 const inject = ::document.body.appendChild;
 const remove = ::document.body.removeChild;
