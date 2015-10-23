@@ -2,10 +2,18 @@
 <form>
 	
 	<input type="text" placeholder="Summoner Name" ng-model="ctrl.summonerName">
-	
-	<input type="text" placeholder="Region" ng-model="ctrl.region">
-	The region is: {{ctrl.region}} <br>
-	The summoner name is: {{ctrl.summonerName}}
+
+	<select ng-model="ctrl.region">
+		<option value="region-NA">North America</option>
+
+		<option value="region-EUW">Europe West</option>
+
+		<option value="region-EUE">Europe East</option>
+
+		<option value="region-KR">Korea</option>
+
+		<option value="region-CH">China</option>
+	</select>
 
 	<input type="button" value="Search" ng-click="ctrl.search(ctrl.summonerName, ctrl.region)">
 <form>
