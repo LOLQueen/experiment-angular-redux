@@ -1,0 +1,11 @@
+
+<form>
+	
+	<input type="text" placeholder="Summoner Name" ng-model="ctrl.summonerName">
+	
+	<input type="text" placeholder="Region" ng-model="ctrl.region">
+	The region is: {{ctrl.region}} <br>
+	The summoner name is: {{ctrl.summonerName}}
+
+	<input type="button" value="Search" ng-click="ctrl.search(ctrl.summonerName, ctrl.region)">
+<form>
