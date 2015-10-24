@@ -1,9 +1,5 @@
-export function Inject(injectable) {
-  return (prototype, method, argumentPosition) => {
-    prototype.$inject = prototype.$inject || [];
-    prototype.$inject[argumentPosition] = injectable;
-  };
-}
+import angular from 'angular';
+import ngRedux from 'ng-redux';
 
 export function makeDirective(component) {
   return () => {
@@ -42,8 +38,17 @@ export function makeSelector(component) {
   );
 }
 
-export function register(app, {components}) {
-  return components.reduce((module, component) => module.directive(
-    makeSelector(component), makeDirective(component)
-  ), app);
+const registerComponent = (module, component) => module.directive(
+  makeSelector(component), makeDirective(component)
+);
+
+export function ReduxApp({
+  components = [], middleware = [], reducer, name,
+} = {}) {
+  return components.reduce(registerComponent, angular
+    .module(name, [ngRedux])
+    .config($ngReduxProvider => $ngReduxProvider.createStoreWith(
+      reducer, middleware
+    ))
+  );
 }
