@@ -1,20 +1,16 @@
 import template from './template.html';
-import {fetchSummoner} from 'source/actions';
 
 export default class MainApp {
   static selector = 'main-app';
   static template = template;
+  static options = {
+    transclude: true,
+  };
 
   constructor($scope, $log, $ngRedux) {
     $scope.$on('$destroy', $ngRedux.connect(
       this.mapStateToThis,
     )(this));
-
-    $log.log(this);
-  }
-
-  selectSummoner() {
-    this.dispatch(fetchSummoner(this.summonerName));
   }
 
   mapStateToThis(state) {

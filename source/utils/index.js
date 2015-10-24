@@ -1,5 +1,7 @@
 import angular from 'angular';
+import uiRouter from 'angular-ui-router';
 import ngRedux from 'ng-redux';
+import ngReduxRouter from 'redux-ui-router';
 
 export function makeDirective(component) {
   return () => {
@@ -42,13 +44,19 @@ const registerComponent = (module, component) => module.directive(
   makeSelector(component), makeDirective(component)
 );
 
+const registerConfig = (module, fn) => module.config(fn);
+
 export function ReduxApp({
-  components = [], middleware = [], reducer, name,
+  components = [], middlewares = [], configs = [], containers = [],
+  reducer, name,
 } = {}) {
-  return components.reduce(registerComponent, angular
-    .module(name, [ngRedux])
-    .config($ngReduxProvider => $ngReduxProvider.createStoreWith(
-      reducer, middleware
-    ))
+  const smartAndDumb = [...components, ...containers];
+  return configs.reduce(registerConfig,
+    smartAndDumb.reduce(registerComponent, angular
+      .module(name, [ngRedux, uiRouter, ngReduxRouter])
+      .config($ngReduxProvider => $ngReduxProvider.createStoreWith(
+        reducer, middlewares
+      ))
+    )
   );
 }

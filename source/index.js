@@ -14,9 +14,9 @@ if (module.hot) {
   });
 }
 
-function bootstrap() {
+function bootstrap({name}) {
   const el = document.createElement('div');
-  el.appendChild(document.createElement('main-app'));
-  angular.bootstrap(el, ['app']);
+  el.appendChild(document.createElement('ui-view'));
+  angular.bootstrap(el, [name]);
   return el;
 }
