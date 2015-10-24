@@ -29,7 +29,7 @@ module.exports = {
     }],
     loaders: [{
       test: /\.js$/,
-      loaders: ['ng-annotate', 'babel-loader?stage=0', 'eslint-loader'],
+      loaders: ['ng-annotate', 'babel-loader?stage=0&experimental=true', 'eslint-loader'],
       exclude: /node_modules/,
     }, {
       test: /\.scss$/,
@@ -70,6 +70,10 @@ module.exports = {
       test: /\.svg$/,
       loader: 'file-loader?prefix=font/',
     }],
+  },
+  resolve: {
+    root: __dirname,
+    extensions: ['', '.js'],
   },
   devServer: {
     contentBase: `${__dirname}/public`,
