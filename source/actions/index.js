@@ -8,7 +8,7 @@ const SERVER_URL = 'http://localhost:9000/na';
 export function selectSummoner(name) {
   return {
     type: SELECT_SUMMONER,
-    payload: name
+    payload: name,
   };
 }
 
@@ -20,7 +20,7 @@ export function loadSummoner(summoner) {
 }
 
 export function fetchSummoner(name) {
-  return async function(dispatch, getState){
+  return async function thunk(dispatch) {
     const response = await fetch(`${SERVER_URL}/summoner?names=${name}`);
     const json = await response.json();
     const id = Object.keys(json)[0];

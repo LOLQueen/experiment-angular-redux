@@ -5,10 +5,12 @@ export default class MainApp {
   static selector = 'main-app';
   static template = template;
 
-  constructor($scope, $ngRedux) {
+  constructor($scope, $log, $ngRedux) {
     $scope.$on('$destroy', $ngRedux.connect(
-      this.mapStateToThis
+      this.mapStateToThis,
     )(this));
+
+    $log.log(this);
   }
 
   selectSummoner() {
@@ -17,7 +19,7 @@ export default class MainApp {
 
   mapStateToThis(state) {
     return {
-      state: state.toJS()
+      state: state.toJS(),
     };
   }
 }

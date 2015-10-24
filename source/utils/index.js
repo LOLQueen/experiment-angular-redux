@@ -42,9 +42,9 @@ const registerComponent = (module, component) => module.directive(
   makeSelector(component), makeDirective(component)
 );
 
-export function ReduxApp({ 
-  components=[], middleware=[], reducer, name
-}={}) {
+export function ReduxApp({
+  components = [], middleware = [], reducer, name,
+} = {}) {
   return components.reduce(registerComponent, angular
     .module(name, [ngRedux])
     .config($ngReduxProvider => $ngReduxProvider.createStoreWith(
